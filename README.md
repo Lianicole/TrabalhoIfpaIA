@@ -1,0 +1,2 @@
+# TrabalhoIfpaIA
+Atividade avaliativa
