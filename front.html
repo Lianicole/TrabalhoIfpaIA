@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações de IA Generativa</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cae;
+            --background-color: #f0f4f8;
+            --text-color: #2d3748;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --hover-color: #3a5a78;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .clear-btn {
+            background-color: #e2e8f0;
+            color: var(--text-color);
+        }
+
+        .clear-btn:hover {
+            background-color: #cbd5e0;
+            transform: translateY(-2px);
+        }
+
+        /* Sistema */
+        .help-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .help-icon:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .tooltip {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 250px;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            margin-top: 5px;
+        }
+
+        .help-icon:hover + .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsividade */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tooltip {
+                width: 200px;
+                left: -50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Configurações de IA Genetico</h1>
+        
+        <form id="aiSettingsForm">
+            <div class="form-group">
+                <label for="fontSize">
+                    Exemplo
+                    <span class="help-icon">?</span>
+                    <span class="tooltip">Exemplo texto.</span>
+                </label>
+                <input type="number" id="fontSize" min="8" max="32" value="16" step="1">
+            </div>
+            
+            <div class="form-group">
+                <label for="generations">
+                    Número de Gerações
+                    <span class="help-icon">?</span>
+                    <span class="tooltip">Definir </span>
+                </label>
+                <input type="number" id="generations" min="1" max="10" value="1">
+            </div>
+            
+            <div class="form-group">
+                <label for="creativity">
+                    Exemplo texto
+                    <span class="help-icon">?</span> 
+                    <span class="tooltip">exemplo.</span>
+                </label>
+                <input type="number" id="creativity" min="1" max="10" value="5">
+            </div>
+            
+            <div class="form-group">
+                <label for="outputLength">
+                    Texto
+                    <span class="help-icon">?</span>
+                    <span class="tooltip">Texto.</span>
+                </label>
+                <select id="outputLength">
+                    <option value="short">Exemplo</option>
+                    <option value="medium" selected>Exemplo</option>
+                    <option value="long"> exemplo</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="tone">
+                    Texto
+                    <span class="help-icon">?</span>
+                    <span class="tooltip">Texto.</span>
+                </label>
+                <select id="tone">
+                    <option value="formal">Exemplo</option>
+                    <option value="neutral" selected>Exemplo</option>
+                    <option value="casual">Exemplo</option>
+                </select>
+            </div>
+            
+            <div class="buttons">
+                <button type="submit" class="submit-btn">Enviar</button>
+                <button type="reset" class="clear-btn">Limpar Campos</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Validação do formulário
+        document.getElementById('aiSettingsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const settings = {
+                fontSize: document.getElementById('fontSize').value,
+                generations: document.getElementById('generations').value,
+                creativity: document.getElementById('creativity').value,
+                outputLength: document.getElementById('outputLength').value,
+                tone: document.getElementById('tone').value
+            };
+            
+            console.log('Configurações enviadas:', settings);
+            alert('Configurações enviadas com sucesso! Verifique o console para os detalhes.');
+        });
+    </script>
+</body>
+</html>
