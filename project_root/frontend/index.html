@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações de IA Genético</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Configurações de IA Genético</h1>
+
+        <form id="aiSettingsForm">
+            <div class="form-group">
+                <label for="popSize">
+                    Tamanho da População
+                    <span class="help-icon">?</span>
+                    <span class="tooltip">Número de indivíduos em cada geração do algoritmo genético.</span>
+                </label>
+                <input type="number" id="popSize" min="2" max="50" value="6" step="1">
+            </div>
+
+            <div class="form-group">
+                <label for="generations">
+                    Número de Gerações
+                    <span class="help-icon">?</span>
+                    <span class="tooltip">Número de iterações do algoritmo genético.</span>
+                </label>
+                <input type="number" id="generations" min="1" max="100" value="10">
+            </div>
+
+            <div class="form-group">
+                <label for="mutationRate">
+                    Taxa de Mutação (%)
+                    <span class="help-icon">?</span>
+                    <span class="tooltip">Probabilidade de um gene (hiperparâmetro) sofrer mutação.</span>
+                </label>
+                <input type="number" id="mutationRate" min="0" max="100" value="30">
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="submit-btn">Iniciar Otimização</button>
+                <button type="reset" class="clear-btn">Limpar Campos</button>
+            </div>
+        </form>
+
+        <div id="results" style="margin-top: 30px; display: none;">
+            <h2>Resultados da Otimização</h2>
+            <p><strong>Status:</strong> <span id="status"></span></p>
+            <p><strong>Melhor Indivíduo:</strong> <pre id="bestIndividual"></pre></p>
+            <p><strong>Acurácia Final:</strong> <span id="finalAccuracy"></span></p>
+            <p><strong>Tempo Total:</strong> <span id="totalTime"></span></p>
+            <h3>Histórico de Acurácias (Melhores por Geração)</h3>
+            <div id="accuracyChart"></div>
+            <ul id="historyList"></ul>
+
+            <h3>Exemplos de Imagens</h3>
+            <div id="imageExamples" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+        </div>
+        <p id="errorMessage" style="color: red; margin-top: 15px;"></p>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+</html>

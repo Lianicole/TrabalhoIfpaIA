@@ -1,0 +1,6 @@
+flask
+torch
+torchvision
+scikit-learn
+numpy
+matplotlib # Opcional, se você for gerar gráficos no backend para retornar
